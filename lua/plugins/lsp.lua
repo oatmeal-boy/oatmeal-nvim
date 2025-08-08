@@ -1,30 +1,45 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      local lspconfig = require("lspconfig")
-      local servers = {
-        bashls = {},
-        pyright = {},
-        gopls = {},
-        terraformls = {},
-        dockerls = {},
-        helm_ls = {},
-        groovyls = {},
-        yamlls = {
-          settings = {
-            yaml = {
-              schemas = {
-                kubernetes = "*.yaml",
-              },
-            },
-          },
-        },
-      }
+	{
+		"neovim/nvim-lspconfig",
+		config = function()
+			local lspconfig = require("lspconfig")
+			local servers = {
+				bashls = {},
+				pyright = {},
+				gopls = {
+					settings = {
+						gopls = {
+							gofumpt = true,
+							usePlaceholders = true,
+							completeUnimported = true,
+							staticcheck = true,
+							analyses = {
+								unusedparams = true,
+								unusedvariable = true,
+								nilness = true,
+								shadow = true,
+							},
+						},
+					},
+				},
+				terraformls = {},
+				dockerls = {},
+				helm_ls = {},
+				groovyls = {},
+				yamlls = {
+					settings = {
+						yaml = {
+							schemas = {
+								kubernetes = "*.yaml",
+							},
+						},
+					},
+				},
+			}
 
-      for name, opts in pairs(servers) do
-        lspconfig[name].setup(opts)
-      end
-    end,
-  },
+			for name, opts in pairs(servers) do
+				lspconfig[name].setup(opts)
+			end
+		end,
+	},
 }
