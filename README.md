@@ -22,7 +22,7 @@ git clone https://github.com/oatmeal-boy/oatmel-nvim ~/.config/nvim/
 ### Install lazy.nvim
 
 ```bash
-git clone https://github.com/oatmeal-boy/oatmel-nvim ~/.config/nvim/
+git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/
 ```
 
 ### Launch nvim
