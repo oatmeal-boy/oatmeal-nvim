@@ -1,0 +1,18 @@
+# Ignore compiled Lua files
+*.luac
+
+# Ignore swap/undo/backup files (if they end up here)
+*.swp
+*.swo
+*.swn
+*.un~
+*.bak
+
+# Ignore session or local config
+Session.vim
+local.lua
+
+# Lazy.nvim compiled plugins (optional)
+lua/compiled.lua
+lua/plugins/compiled.lua
+
