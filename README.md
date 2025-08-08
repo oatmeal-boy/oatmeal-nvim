@@ -1,4 +1,4 @@
-# 🧠 oatmel-nvim
+# 🧠 oatmeal-nvim
 
 This is my personal Neovim configuration, designed to replace VSCode with a fast, minimal, and modular setup based on [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim). It includes:
 
