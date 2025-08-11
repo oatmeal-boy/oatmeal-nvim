@@ -20,10 +20,20 @@ return {
 
 		-- Keymaps
 		local map = vim.keymap.set
-		local opts = { noremap = true, silent = true, desc = "" }
 
 		map("n", "<leader><space>", builtin.buffers, { desc = "Find Buffers" })
-		map("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+
+		-- Find files: special logic for Oil
+		map("n", "<leader>ff", function()
+			local dir
+			local ok, oil = pcall(require, "oil")
+			if ok then
+				dir = oil.get_current_dir()
+			end
+			dir = dir or vim.fn.expand("%:p:h")
+			builtin.find_files({ cwd = dir })
+		end, { desc = "Find Files (Oil aware)" })
+
 		map("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep" })
 		map("n", "<leader>fw", builtin.grep_string, { desc = "Find Word under Cursor" })
 		map("n", "<leader>fr", builtin.oldfiles, { desc = "Recent Files" })

@@ -7,4 +7,5 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
-
+vim.o.showtabline = 2
+vim.o.tabline = "%{tabpagenr()} %t"
