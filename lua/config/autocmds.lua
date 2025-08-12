@@ -1,12 +1,6 @@
--- Format on save with null-ls only
+--- Conform plugin format-on-save
 vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*",
-	callback = function()
-		vim.lsp.buf.format({
-			async = false,
-			filter = function(client)
-				return client.name == "null-ls"
-			end,
-		})
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf, lsp_fallback = true, timeout_ms = 2000 })
 	end,
 })
