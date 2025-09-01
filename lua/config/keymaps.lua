@@ -15,3 +15,7 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { silent = true }
 for i = 1, 9 do
 	vim.keymap.set("n", "<leader>" .. i, "<cmd>BufferLineGoToBuffer " .. i .. "<CR>", { silent = true })
 end
+
+vim.keymap.set("n", "<Leader>q", function()
+	vim.diagnostic.open_float(nil, { focus = false })
+end, { silent = true })

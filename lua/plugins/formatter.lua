@@ -9,12 +9,17 @@ return {
 			typescriptreact = { "prettierd", "prettier" },
 			json = { "prettierd", "prettier" },
 			jsonc = { "prettierd", "prettier" },
-			yaml = { "prettierd", "prettier" }, -- evită pentru Helm templates
+			yaml = { "prettierd", "prettier" },
 			markdown = { "prettierd", "prettier" },
 			lua = { "stylua" },
 			sh = { "shfmt" },
 			terraform = { "terraform_fmt" },
-			["*"] = { "lsp" }, -- fallback la LSP dacă nu găsește altceva
+			html = { "prettierd", "prettier" },
+			css = { "prettierd", "prettier" },
+			scss = { "prettierd", "prettier" },
+			bash = { "shfmt" },
+			dockerfile = { "dockfmt" },
+			["*"] = { "lsp" }, -- fallback to lsp
 		},
 		format_on_save = function(bufnr)
 			local filepath = vim.api.nvim_buf_get_name(bufnr)
